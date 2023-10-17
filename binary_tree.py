@@ -16,12 +16,10 @@ class BinaryTree:
             self.right = BinaryTree(number - 1)
         self.index()
 
-
     def __del__(self):
         """Delete tree"""
         print(self.name, " was deleted")
 
-        
     def index(self):
         """Numerate branches"""
         
@@ -34,8 +32,7 @@ class BinaryTree:
             self.left.index()            
             self.right.index()
 
-            
-    def full_dict(self, dict_for_print = dict()):
+    def full_dict(self, dict_for_print=dict()):
         """Create a dict to show the tree"""
 
         first_time = True
@@ -47,7 +44,6 @@ class BinaryTree:
 
         return dict_for_print
 
-       
     def show(self):
         """Show tree"""
         
@@ -57,6 +53,7 @@ class BinaryTree:
 
 def create_chain(quantity):
     return BinaryTree(quantity)
+
 
 tree = create_chain(3)
 tree.show()

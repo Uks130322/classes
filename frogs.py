@@ -9,13 +9,9 @@ class Frogs:
         else:
             self.next = Frogs(number - 1)
 
-        
-
-
     def __del__(self):
         """Delete frog"""
         print(self.name, " was deleted")
-
 
     def index(self):
         """Numerate frogs"""
@@ -28,14 +24,12 @@ class Frogs:
         else:
             self.name = f"Frog_{i}"
 
-        
     def show(self):
         """Show frog"""
 
         while self.next is not None:
             self = self.next
             print(self.name)
-            
 
     def insert_frog(self, where):
         """Insert frog in the chain"""
@@ -49,7 +43,6 @@ class Frogs:
         self.next = Frogs()
         self.next.name = "New_frog"
         self.next.next = place
-
 
     def delete_frog(self, which):
         """Delete frog from the chain"""
@@ -67,6 +60,7 @@ class Frogs:
 
 def create_chain(quantity):
     return Frogs(quantity)
+
 
 u = create_chain(6)
 u.show()

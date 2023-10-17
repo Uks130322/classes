@@ -8,22 +8,25 @@ class Food:
     def show(self):
         print("This is", self.name)
 
+
 class Fruit(Food):
 
     def show(self):
         print(f"This is {self.name}, it's a fruit")
+
 
 class Citrus(Fruit):
 
     def show(self):
         print(f"This is {self.name}, it's a citrus fruit")
 
-#m = Food("meat")
-#m.show()
-#a = Fruit("an apple")
-#a.show()
-#lem = Citrus("lemon")
-#lem.show()
+# m = Food("meat")
+# m.show()
+# a = Fruit("an apple")
+# a.show()
+# lem = Citrus("lemon")
+# lem.show()
+
 
 class WithNoChanges:
     def __init__(self, content):
@@ -34,27 +37,27 @@ class WithNoChanges:
 
     def __int__(self):
         if (isinstance(self.content, int) or isinstance(self.content, float)
-            or isinstance(self.content, str) and self.content.isdigit()):
+                or isinstance(self.content, str) and self.content.isdigit()):
             return int(self.content)
         else:
             return 0
 
     def __float__(self):
         if (isinstance(self.content, int) or isinstance(self.content, float)
-            or isinstance(self.content, str) and self.content.isdigit()):
+                or isinstance(self.content, str) and self.content.isdigit()):
             return float(self.content)
         else:
             return 0.0
 
 
-#first = WithNoChanges("one")
-#second = WithNoChanges("2")
-#third = WithNoChanges(3)
-#fourth = WithNoChanges(4.0)
-#print("first:", str(first), int(first), float(first))
-#print("second:", str(second), int(second), float(second))
-#print("third:", str(third), int(third), float(third))
-#print("fourth:", str(fourth), int(fourth), float(fourth))
+# first = WithNoChanges("one")
+# second = WithNoChanges("2")
+# third = WithNoChanges(3)
+# fourth = WithNoChanges(4.0)
+# print("first:", str(first), int(first), float(first))
+# print("second:", str(second), int(second), float(second))
+# print("third:", str(third), int(third), float(third))
+# print("fourth:", str(fourth), int(fourth), float(fourth))
 
 
 class ListWithMerging:
@@ -73,17 +76,18 @@ class ListWithMerging:
 
         return ListWithMerging(new_field)
 
-#a = ListWithMerging(["s"])
-#b = ListWithMerging([4, 5, 6])
-#c = a + b
-#d = b + a
-#e = a + c
-#print("a:", a.field, "b:", b.field, "c = a + b", c.field, "d = b + a",
+# a = ListWithMerging(["s"])
+# b = ListWithMerging([4, 5, 6])
+# c = a + b
+# d = b + a
+# e = a + c
+# print("a:", a.field, "b:", b.field, "c = a + b", c.field, "d = b + a",
 #      d.field, "e = a + c", e.field, sep="\n")
 
-class StandartNumber:
-    def __init__(self, number: int):
-        self.value = number
+
+class StandardNumber:
+    def __init__(self, number_: int):
+        self.value = number_
 
     def __add__(self, n: int):
         self.value += n
@@ -91,7 +95,7 @@ class StandartNumber:
     def __sub__(self, n: int):
         self.value -= n
 
-    def __rsub__(self, n:int):
+    def __rsub__(self, n: int):
         self.value = n - self.value
 
     def __mul__(self, n: int):
@@ -100,18 +104,18 @@ class StandartNumber:
     def __floordiv__(self, n: int):
         self.value //= n
 
-#a = StandartNumber(80)
-#print("a:", a.value)
-#a + 5
-#print("a + 5:", a.value)
-#a - 5
-#print("a - 5:", a.value)
-#a // 5
-#print("a // 5:", a.value)
-#a * 5
-#print("a * 5:", a.value)
-#5 - a
-#print("5 - a:", a.value)
+# a = StandardNumber(80)
+# print("a:", a.value)
+# a + 5
+# print("a + 5:", a.value)
+# a - 5
+# print("a - 5:", a.value)
+# a // 5
+# print("a // 5:", a.value)
+# a * 5
+# print("a * 5:", a.value)
+# 5 - a
+# print("5 - a:", a.value)
 
 
 class Equality:
@@ -143,10 +147,10 @@ class Equality:
         return self.get_value(6) >= elem.get_value(6)
 
     
-#a = Equality([1, 2, 3, 4, 5, 6])
-#b = Equality([1, 1, 4, 3, 5, 6])
-#c = Equality([])
-#print(a == b, a != b, a < b, a > b, a <= b, a >= b, "\n", a == c, a != c, a < c, a > c, a <= c, a >= c)
+# a = Equality([1, 2, 3, 4, 5, 6])
+# b = Equality([1, 1, 4, 3, 5, 6])
+# c = Equality([])
+# print(a == b, a != b, a < b, a > b, a <= b, a >= b, "\n", a == c, a != c, a < c, a > c, a <= c, a >= c)
 
 
 class Initials:
@@ -156,9 +160,16 @@ class Initials:
     def __getattribute__(self, field):
         return [item[0] for item in object.__getattribute__(self, field)]
 
-#me = Initials(["Natalia", "Tkachuk", 25, 12, 1992])
-#print(me.field)
-#print(object.__getattribute__(me, "field"))
+# me = Initials(["Natalia", "Tkachuk", 25, 12, 1992])
+# print(me.field)
+# print(object.__getattribute__(me, "field"))
+
+
+def get_value(value, index):
+    if len(value) <= index:
+        return 0
+    else:
+        return value[index]
 
 
 class Summary:
@@ -166,41 +177,35 @@ class Summary:
         self.first = first
         self.second = second
 
-    def get_value(self, value, index):
-        if len(value) <= index:
-            return 0
-        else:
-            return value[index]
-
     def __getitem__(self, index):
-        return self.get_value(self.first, index) + self.get_value(self.second, index)
+        return get_value(self.first, index) + get_value(self.second, index)
 
 
-#a = Summary([1, 2], [3, 4, 5])
-#print(a.first)
-#print(a.second)
-#print(a[0], a[1], a[2], a[3])
-#b = Summary([1, 2, 3])
-#print(b.first)
-#print(b.second)
-#print(b[0], b[1], b[2], b[3])
+# a = Summary([1, 2], [3, 4, 5])
+# print(a.first)
+# print(a.second)
+# print(a[0], a[1], a[2], a[3])
+# b = Summary([1, 2, 3])
+# print(b.first)
+# print(b.second)
+# print(b[0], b[1], b[2], b[3])
 
 
 class PolySum:
     def __init__(self, value=[]):
         self.value = value
 
-    def polynomial(self, number):
+    def polynomial(self, number_):
         result = 0
         for index, n in enumerate(self.value):
-            result += number ** index * n
+            result += number_ ** index * n
 
         return result
 
-#a = PolySum([1, 2, 3])
-#b = PolySum()
-#print(a.value)
-#print(a.polynomial(1), a.polynomial(2), b.polynomial(3))
+# a = PolySum([1, 2, 3])
+# b = PolySum()
+# print(a.value)
+# print(a.polynomial(1), a.polynomial(2), b.polynomial(3))
 
 
 class OddNumbers:
@@ -215,8 +220,8 @@ class OddNumbers:
         return iter(self.lst)
 
 
-#a = OddNumbers(10)
-#for number in a:
+# a = OddNumbers(10)
+# for number in a:
 #    print(number)
 
 
@@ -233,6 +238,7 @@ class FibNumbers:
 
     def __iter__(self):
         return iter(self.lst)
+
 
 f = FibNumbers(20)
 for number in f:

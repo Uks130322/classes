@@ -3,7 +3,6 @@ from random import randrange
 
 class User:
     """User's name and age"""
-
     
     def __init__(self, name="Noname", age="Noage"):
         """Creating element"""
@@ -12,12 +11,10 @@ class User:
         self.age = age
         print("New user was created")
 
-
     def show(self):
         """Show element's atributes"""
         
         print("User name:", self.name, "\nUser age:", self.age)
-
 
     def __del__(self):
         """Delete element"""
@@ -28,18 +25,15 @@ class User:
 class UnitedElements:
     """Summing of two int or str elements"""
 
-    
     def __init__(self, first, second):
         """Creating element"""
         
         if isinstance(first, type(second)):
             self.result = first + second
 
-
     def show(self):
         """Show element's atributes"""
         print("Your list of numbers:", self.lst)
-
 
     def middle(self):
         """Find middle value"""
@@ -52,7 +46,6 @@ def create(lst: list, name: str):
     class SomeClass:
         """Class name"""
 
-        
         def __init__(self):
             """Creating element"""
             
@@ -76,15 +69,14 @@ def get_numbers(obj):
 
     return new_obj
 
+
 class AnimalAge:
     """Age of animal"""
-
 
     def __init__(self, age: int):
         """Creating object of class"""
         
         self.age = age
-
         
     def show(self):
         """Show element's atributes"""
@@ -131,5 +123,3 @@ def add_lists(list1, list2):
             new_list.lst.append(item)
 
     return new_list
-
-

@@ -17,7 +17,7 @@ class Example:
     """Full the chain"""
     def set(self, num=1):
         self.code = self.name + "["+str(num)+"]"
-        if self.next != None:
+        if self.next is not None:
             self.next.set(num + 1)
 
     def show(self):
